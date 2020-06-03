@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="employeesList_anchorPane" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EmployeesController">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-1.0">
+         <content>
+            <VBox prefHeight="800.0" styleClass="employeesListVbox">
+               <children>
+                  <FlowPane prefWidth="730.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <TableView fx:id="EmployeeListTableView" prefHeight="250.0" prefWidth="720.0">
+                                 <columns>
+                                    <TableColumn fx:id="EmployeeListTableViewIdColumn" prefWidth="50.0" text="Id" />
+                                    <TableColumn fx:id="EmployeeListTableViewFirstNameColumn" onEditCommit="#changeEmployeeFirstNameCellEvent" prefWidth="100.0" text="First Name" />
+                                    <TableColumn fx:id="EmployeeListTableViewLastNameColumn" onEditCommit="#changeEmployeeLastNameCellEvent" prefWidth="100.0" text="Last Name" />
+                                    <TableColumn fx:id="EmployeeListTableViewBirthDateColumn" prefWidth="120.0" text="Birth Date" />
+                                    <TableColumn fx:id="EmployeeListTableViewHireDateColumn" prefWidth="120.0" text="Hire Date" />
+                                    <TableColumn fx:id="EmployeeListTableViewSalaryColumn" prefWidth="120.0" text="Salary" />
+                                    <TableColumn fx:id="EmployeeListTableViewCompanyColumn" prefWidth="300.0" text="Company" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </FlowPane>
+                  <FlowPane prefHeight="45.0" prefWidth="730.0">
+                     <children>
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button fx:id="deleteEmployeeButton" mnemonicParsing="false" onAction="#deleteEmployeeAction" text="Delete Employee" />
+                              <Button fx:id="editEmployeeButton" mnemonicParsing="false" onAction="#editEmployeeAction" text="Edit Employee" GridPane.columnIndex="1" />
+                              <Button fx:id="loadEmployeesButton" mnemonicParsing="false" onAction="#loadEmployees" text="Load Employees" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </FlowPane>
+                  <Separator prefWidth="750.0" />
+                  <FlowPane prefHeight="435.0" prefWidth="594.0">
+                     <children>
+                        <GridPane hgap="10.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" maxWidth="450.0" minWidth="10.0" prefWidth="250.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="0.0" prefWidth="350.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="350.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="EmployeeListLabel" text="First Name" GridPane.rowIndex="1" />
+                              <Label styleClass="EmployeeListLabel" text="Last Name" GridPane.rowIndex="2" />
+                              <Label styleClass="EmployeeListLabel" text="Birth Date" GridPane.rowIndex="3" />
+                              <Label styleClass="EmployeeListLabel" text="Hire Date" GridPane.rowIndex="4" />
+                              <Label styleClass="EmployeeListLabel" text="Salary" GridPane.rowIndex="5" />
+                              <FlowPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <FlowPane prefHeight="25.0" prefWidth="326.0">
+                                       <children>
+                                          <TextField fx:id="EmployeeLastNameTextField" accessibleText="Employee Last Name" maxWidth="1.7976931348623157E308" prefWidth="326.0" promptText="Employee Last Name" />
+                                          <Label fx:id="EmployeeLastNameErrorMessage" textFill="RED" />
+                                       </children>
+                                    </FlowPane>
+                                 </children></FlowPane>
+                              <Button fx:id="insertEmployeeButton" mnemonicParsing="false" onAction="#saveEmployeeAction" text="Save Employee" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Label styleClass="EmployeeListLabel" text="Id" />
+                              <Label fx:id="EmployeeIdLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              <DatePicker fx:id="EmployeeHireDatePicker" accessibleText="Employee Hire Date" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="companyLabel" text="Company" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="CompanyComboBox" prefHeight="25.0" prefWidth="332.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="EmployeeSalaryTextField" accessibleText="Salary" maxWidth="1.7976931348623157E308" prefWidth="326.0" promptText="Salary" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <FlowPane prefHeight="25.0" prefWidth="326.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField fx:id="EmployeeFirstNameTextField" accessibleText="Employee First Name" maxWidth="1.7976931348623157E308" prefWidth="326.0" promptText="Employee First Name" />
+                                    <Label fx:id="EmployeeFirstNameErrorMessage" textFill="RED" />
+                                 </children>
+                              </FlowPane>
+                                    <DatePicker fx:id="EmployeeBirthDatePicker" accessibleText="Employee Birth Date" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="325.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Button fx:id="clearEmployeeForm" mnemonicParsing="false" onAction="#clearEmployeeForm" text="Clear Form" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </FlowPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

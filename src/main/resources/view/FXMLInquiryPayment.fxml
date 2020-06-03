@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="clearAction" prefHeight="642.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InquiryPaymentController">
+    <children>
+        <FlowPane prefWidth="730.0">
+            <children>
+                <VBox>
+                    <children>
+                        <TableView fx:id="PaymentListTableView" prefHeight="250.0" prefWidth="720.0">
+                            <columns>
+                                <TableColumn fx:id="PaymentListTableViewIdColumn" prefWidth="50.0" text="Id" />
+                                <TableColumn fx:id="PaymentListTableViewPaymentColumn" prefWidth="100.0" text="Payment" />
+                                <TableColumn fx:id="PaymentListTableViewQuantityColumn" prefWidth="100.0" text="Quantity" />
+                                <TableColumn fx:id="PaymentListTableViewDateColumn" prefWidth="100.0" text="Date" />
+                                <TableColumn fx:id="PaymentListTableViewCommentColumn" prefWidth="120.0" text="Comment" />
+                                <TableColumn fx:id="PaymentListTableViewCustomerColumn" prefWidth="300.0" text="Customer" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </FlowPane>
+        <FlowPane layoutX="80.0" layoutY="344.0" prefHeight="52.0" prefWidth="291.0">
+            <children>
+                <GridPane prefHeight="209.0" prefWidth="479.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="129.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="251.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="103.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ComboBox fx:id="CustomerComboBox" prefHeight="27.0" prefWidth="238.0" GridPane.columnIndex="1" />
+                        <Label prefHeight="17.0" prefWidth="71.0" text="Customer" />
+                        <Button fx:id="loadPaymentsButton" mnemonicParsing="false" onAction="#loadPaymentsAction" text="Sumbit" GridPane.columnIndex="2" />
+                        <Label text="Highest payment:" GridPane.rowIndex="1" />
+                        <Label fx:id="SummaryPaymentLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="HighestPaymentLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label prefHeight="17.0" prefWidth="127.0" text="Summary of payments:" GridPane.rowIndex="2" />
+                        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearAction" prefHeight="25.0" prefWidth="54.0" text="Clear" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    </children>
+                </GridPane>
+            </children>
+        </FlowPane>
+      <Separator layoutY="340.0" prefHeight="6.0" prefWidth="822.0" />
+      <FlowPane layoutX="84.0" layoutY="262.0" prefHeight="67.0" prefWidth="483.0">
+         <children>
+            <GridPane prefHeight="51.0" prefWidth="579.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="154.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.0" minWidth="10.0" prefWidth="228.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="0.0" prefWidth="196.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="21.0" prefWidth="157.0" text="Insert payment lower than:" />
+                  <TextField fx:id="paymentLowerThanTextField" maxWidth="200.0" GridPane.columnIndex="1" />
+                  <Button fx:id="PaymentLowerButton" mnemonicParsing="false" onAction="#PaymentLowerAction" text="da" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </FlowPane>
+    </children>
+</AnchorPane>

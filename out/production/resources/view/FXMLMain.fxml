@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="500.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <BorderPane fx:id="rootBorderPane" layoutY="0.0" prefHeight="500.0" prefWidth="1200.0">
+         <top>
+            <MenuBar prefHeight="28.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Company">
+                  <items>
+                        <MenuItem fx:id="companylist_menuitem" mnemonicParsing="false" onAction="#printCompaniesAnchor" text="Companies" />
+                         <MenuItem fx:id="financeslist_menuitem" mnemonicParsing="false" onAction="#printFinancesAnchor" text="Companies balance" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Employees">
+                    <items>
+                      <MenuItem fx:id="employees_menuitem" mnemonicParsing="false" onAction="#printEmployeeAnchor" text="Employees" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Customers">
+                     <items>
+                      <MenuItem mnemonicParsing="false" onAction="#printCustomersAnchor" text="Customers" />
+                        <MenuItem mnemonicParsing="false" onAction="#printPaymentsAnchor" text="Payments" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="Inquiry">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#InquiryAnchor" text="Company" />
+                        <MenuItem mnemonicParsing="false" onAction="#InquiryCustomersAnchor" text="Customers" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
