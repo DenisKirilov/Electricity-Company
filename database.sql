@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS `electro`.`company` (
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 174
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -38,7 +37,6 @@ CREATE TABLE IF NOT EXISTS `electro`.`customers` (
     FOREIGN KEY (`company_id`)
     REFERENCES `electro`.`company` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 173
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -60,7 +58,6 @@ CREATE TABLE IF NOT EXISTS `electro`.`employees` (
     FOREIGN KEY (`company_id`)
     REFERENCES `electro`.`company` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 90
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -81,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `electro`.`finances` (
     FOREIGN KEY (`company_id`)
     REFERENCES `electro`.`company` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 147
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -102,7 +98,6 @@ CREATE TABLE IF NOT EXISTS `electro`.`payments` (
     FOREIGN KEY (`customer_id`)
     REFERENCES `electro`.`customers` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 212
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
